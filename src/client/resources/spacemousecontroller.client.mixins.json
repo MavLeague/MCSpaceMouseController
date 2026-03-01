@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.mavleague.spacemousecontroller.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "SpaceMouseCameraMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

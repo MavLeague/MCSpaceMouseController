@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "spacemousecontroller",
+  "version": "${version}",
+  "name": "SpaceMouseController",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/spacemousecontroller/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.mavleague.spacemousecontroller.client.SpacemousecontrollerDataGenerator"
+    ],
+    "client": [
+      "org.mavleague.spacemousecontroller.client.SpacemousecontrollerClient"
+    ],
+    "main": [
+      "org.mavleague.spacemousecontroller.Spacemousecontroller"
+    ]
+  },
+  "mixins": [
+    "spacemousecontroller.mixins.json",
+    {
+      "config": "spacemousecontroller.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
