@@ -44,6 +44,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     implementation 'org.hid4java:hid4java:0.8.0'
+    include 'org.hid4java:hid4java:0.8.0'
 }
 
 processResources {

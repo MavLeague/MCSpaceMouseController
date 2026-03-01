@@ -3,10 +3,13 @@
   "id": "spacemousecontroller",
   "version": "${version}",
   "name": "SpaceMouseController",
-  "description": "",
-  "authors": [],
-  "contact": {},
-  "license": "All-Rights-Reserved",
+  "description": "A Minecraft Fabric Mod, which allows you to control the game using a 3dConnexion SpaceMouse.",
+  "authors": ["MavLeague"],
+  "contact": {
+    "issues": "https://github.com/MavLeague/MCSpaceMouseController/issues",
+    "homepage": "https://github.com/MavLeague/MCSpaceMouseController"
+  },
+  "license": "Apache License 2.0",
   "icon": "assets/spacemousecontroller/icon.png",
   "environment": "client",
   "entrypoints": {
