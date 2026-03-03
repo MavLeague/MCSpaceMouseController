@@ -13,7 +13,7 @@ I recomment stopping the driver while using or disabling any inputs for the mine
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://modrinth.com/datapack/pocket_dimension">
+  <a href="https://modrinth.com/project/CwcTaOiw">
     <img src="https://img.shields.io/modrinth/game-versions/CwcTaOiw?style=for-the-badge&logo=modrinth&logoColor=%2300AF5C&label=SpaceMouse%20Controller">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
