@@ -4,7 +4,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import org.mavleague.spacemousecontroller.client.SpaceMouseState;
 import org.mavleague.spacemousecontroller.client.SpacemousecontrollerClient;
+import org.mavleague.spacemousecontroller.config.SpaceMouseConfig;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -16,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Mouse.class)
 public class SpaceMouseCameraMixin {
 
+    @Unique
     private long lastFrameTime = System.nanoTime();
 
     @Inject(method = "updateMouse", at = @At("HEAD"))
@@ -36,22 +39,28 @@ public class SpaceMouseCameraMixin {
         // Retrieve the latest threaded hardware state
         SpaceMouseState state = SpacemousecontrollerClient.getCurrentState();
 
-        float lookSensitivity = 250.0f;
+        // Load the variables dynamically from our config
+        float lookSensitivity = SpaceMouseConfig.lookSensitivity;
         float deadzone = 0.15f;
 
         // Apply Pitch (Looking up/down)
         if (Math.abs(state.pitch) > deadzone) {
             float currentPitch = client.player.getPitch();
-            float pitchChange = state.pitch * lookSensitivity * deltaTime;
 
-            // Clamp pitch to prevent the camera from flipping upside down
+            // Invert the pitch if the setting is enabled
+            float directionMultiplier = SpaceMouseConfig.invertPitch ? -1.0f : 1.0f;
+            float pitchChange = state.pitch * lookSensitivity * deltaTime * directionMultiplier;
+
             float newPitch = Math.max(-90.0f, Math.min(90.0f, currentPitch + pitchChange));
             client.player.setPitch(newPitch);
         }
 
         // Apply Yaw (Looking left/right)
         if (Math.abs(state.yaw) > deadzone) {
-            float yawChange = state.yaw * lookSensitivity * deltaTime;
+            // Invert the yaw if the setting is enabled
+            float directionMultiplier = SpaceMouseConfig.invertYaw ? -1.0f : 1.0f;
+            float yawChange = state.yaw * lookSensitivity * deltaTime * directionMultiplier;
+
             client.player.setYaw(client.player.getYaw() + yawChange);
         }
     }

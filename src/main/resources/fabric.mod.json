@@ -21,6 +21,9 @@
     ],
     "main": [
       "org.mavleague.spacemousecontroller.Spacemousecontroller"
+    ],
+    "modmenu": [
+      "org.mavleague.spacemousecontroller.client.SpacemousecontrollerModMenu"
     ]
   },
   "mixins": [
